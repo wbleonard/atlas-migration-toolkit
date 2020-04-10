@@ -67,7 +67,7 @@ print(`${(totalDataSize/1024/1024/1024).toFixed(3)} GB \t - Total dataSize (unco
 print(`${totalCompression}% \t\t - compression (total dataSize -> total size on disk)`);
 
 print('\nDisk Space Used');
-print('--------------')
+print('---------------')
 print(`${fsUsedSizeGB} GB \t - Total File System Used`);
 print(`${Math.ceil(fsTotalSizeGB)} GB \t - Total File System Size`);
 print(`${percentFsUsed}% \t - Percent File System Used `);
