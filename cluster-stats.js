@@ -44,12 +44,17 @@ print('\n-- Host Information --> Map to AtlasCluster Tier\n');
 var mem = Math.ceil(db.hostInfo().system.memSizeMB/1024);
 var cores = db.hostInfo().system.numCores;
 print(`RAM \t Storage \t vCPU`);
-print(`--- \t ------- \t ----`);
+print(`----- \t ------- \t ----`);
 print( `${mem} GB \t ${Math.ceil(fsTotalSizeGB)} GB \t ${cores}`);
 
 print('\nElectable Nodes');
-print('-----');
-print(`${db.isMaster().hosts.length}`)
+print('---------------');
+if (db.isMaster().hosts == null) {
+    nodes = 1;
+} else {
+    nodes = db.isMaster().hosts.length
+}
+print(nodes)
 
 print('\n-- Backup Information --> For calculating backup costs');
 
