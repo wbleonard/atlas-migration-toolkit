@@ -35,7 +35,7 @@ DB Storage
 64.43% 		 - compression (total dataSize -> total size on disk)
 
 Disk Space Used
---------------
+---------------
 7.2 GB 	 - Total File System Used
 100 GB 	 - Total File System Size
 7.20% 	 - Percent File System Used
