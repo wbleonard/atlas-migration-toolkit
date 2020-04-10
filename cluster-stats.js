@@ -9,6 +9,7 @@ var printDatabaseDetails = false;
 db.getSiblingDB('admin').runCommand({ "listDatabases": 1 }).databases.forEach(
     function(database) { 
         // Get sizes
+        storageSize = db.getSiblingDB(database.name).stats().storageSize;
         sizeOnDisk = database.sizeOnDisk;
         dataSize = db.getSiblingDB(database.name).stats().dataSize;
         compression = ((1 - storageSize/dataSize)*100).toFixed(2);
@@ -46,11 +47,11 @@ print(`RAM \t Storage \t vCPU`);
 print(`--- \t ------- \t ----`);
 print( `${mem} GB \t ${Math.ceil(fsTotalSizeGB)} GB \t ${cores}`);
 
-print('\nNodes');
+print('\nElectable Nodes');
 print('-----');
 print(`${db.isMaster().hosts.length}`)
 
-print('\n-- Backup Information --> for calculating backup costs');
+print('\n-- Backup Information --> For calculating backup costs');
 
 print('\nData Size');
 print('---------');
