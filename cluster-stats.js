@@ -70,7 +70,7 @@ print('\nDisk Space Used');
 print('--------------')
 print(`${fsUsedSizeGB} GB \t - Total File System Used`);
 print(`${Math.ceil(fsTotalSizeGB)} GB \t - Total File System Size`);
-print(`${percentFsUsed}% \t - File System Used `);
+print(`${percentFsUsed}% \t - Percent File System Used `);
 print();
 
 

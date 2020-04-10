@@ -38,7 +38,7 @@ Disk Space Used
 --------------
 7.2 GB 	 - Total File System Used
 100 GB 	 - Total File System Size
-7.20% 	 - File System Used
+7.20% 	 - Percent File System Used
 ```
 
 
