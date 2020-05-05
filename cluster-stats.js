@@ -47,14 +47,29 @@ print(`RAM \t Storage \t vCPU`);
 print(`----- \t ------- \t ----`);
 print( `${mem} GB \t ${Math.ceil(fsTotalSizeGB)} GB \t ${cores}`);
 
+replSet = ((db.isMaster().hosts == null) ? false : true);
+
 print('\nElectable Nodes');
 print('---------------');
-if (db.isMaster().hosts == null) {
-    nodes = 1;
-} else {
+if (replSet) {
     nodes = db.isMaster().hosts.length
+} else {
+    nodes = 1;
 }
 print(nodes)
+
+// Print oplog information
+if (replSet) {
+    replInfo = db.getReplicationInfo();
+    avgOplogMBPerHour = (replInfo.usedMB / replInfo.timeDiffHours).toFixed(0);
+
+    print('\nOpLog Stats');
+    print('-----------');    
+    print(`${replInfo.logSizeMB} MB \t\t - Total OpLog size`);
+    print(`${replInfo.usedMB.toFixed(0)} MB \t\t - Used Oplog`);
+    print(`${replInfo.timeDiffHours.toFixed(0)} Hours \t - OpLog window`);
+    print(`${avgOplogMBPerHour} MB \t\t - Average OpLog MBs per hour`);
+}
 
 print('\n-- Backup Information --> For calculating backup costs');
 
