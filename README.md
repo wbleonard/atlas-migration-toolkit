@@ -10,9 +10,9 @@ The [cluster-stats.js](cluster-stats.js) script executes various MongoDB Shell c
 
 -- Host Information --> Map to AtlasCluster Tier
 
-RAM 	 Storage 	 vCPU
------ 	 ------- 	 ----
-2 GB 	 10 GB 	     2
+RAM 	 Storage    vCPU
+----- 	 -------    ----
+2 GB 	 10 GB 	    2
 
 Electable Nodes
 ---------------
