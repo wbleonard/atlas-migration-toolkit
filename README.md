@@ -3,7 +3,21 @@
 A set of tools to help those migrating from the Community Edition of MongoDB to [Atlas](https://www.mongodb.com/cloud/atlas).
 
 ## Cluster Stats
-The [cluster-stats.js](cluster-stats.js) script executes various MongoDB Shell commands to summarize your existing MongoDB environment. This is not intended as a sizing exercise, but rather a simple utility to help you map your existing runtime environment to its Atlas equivalent. Simply run the script in your shell as follows: 
+The [cluster-stats.js](cluster-stats.js) script executes various MongoDB Shell commands to summarize your existing MongoDB environment. This is not intended as a sizing exercise, but rather a simple utility to help you map your existing runtime environment to its Atlas equivalent. 
+
+The user running the script must have the [dbAdmin](https://docs.mongodb.com/manual/reference/built-in-roles/#dbAdmin) role.
+
+To run the script, save [cluster-stats.js](https://raw.githubusercontent.com/wbleonard/atlas-migration-toolkit/master/cluster-stats.js) to your local machine. You can then pass the script to the shell as follow:
+
+```
+mongo < cluster-stats.js
+```
+Or if you prefer, start the shell and load the script:
+```
+PRIMARY> load('cluster-stats.js')
+```
+
+The results will look as follows:
 
 ```
 === Cluster Totals ===
